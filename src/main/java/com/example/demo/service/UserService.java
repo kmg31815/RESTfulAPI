@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Info;
 import com.example.demo.domain.User;
 import com.example.demo.dto.UserDto;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,12 @@ public class UserService {
      * @return the user object
      */
     public User createUser(UserDto userDto) {
-        user.setName(userDto.getName());
-        user.setJobTitle(userDto.getJob_title());
-        user.setCommunicateInformation(userDto.getCommunicate_information());
+        user.setName(userDto.getFirstName() + "." + userDto.getLastName());
+        user.setJobTitle(userDto.getJobTitle());
+        Info info = new Info();
+        info.setEmail(user.getName() + "@gmail.com");
+        info.setMobile(userDto.getMobile());
+        user.setCommunicateInformation(info);
         return user;
     }
 
@@ -46,9 +50,12 @@ public class UserService {
      */
     public User updateUserInfo(UserDto userDto) {
         if (user.getName() != null) {
-            user.setName(userDto.getName());
-            user.setJobTitle(userDto.getJob_title());
-            user.setCommunicateInformation(userDto.getCommunicate_information());
+            user.setName(userDto.getFirstName() + "." + userDto.getLastName());
+            user.setJobTitle(userDto.getJobTitle());
+            Info info = new Info();
+            info.setEmail(user.getName() + "@gmail.com");
+            info.setMobile(userDto.getMobile());
+            user.setCommunicateInformation(info);
         }
         return user;
     }

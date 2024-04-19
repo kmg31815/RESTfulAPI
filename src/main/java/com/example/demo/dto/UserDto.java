@@ -1,37 +1,44 @@
 package com.example.demo.dto;
 
-import com.example.demo.domain.Info;
-
 /**
  * User Data Transfer Object
  */
 public class UserDto {
 
-    private String name;
-    private String job_title;
-    private Info communicate_information;
+    private String firstName;
+    private String lastName;
+    private String jobTitle;
+    private String mobile;
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getJob_title() {
-        return job_title;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setJob_title(String job_title) {
-        this.job_title = job_title;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public Info getCommunicate_information() {
-        return communicate_information;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public void setCommunicate_information(Info communicate_information) {
-        this.communicate_information = communicate_information;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }
