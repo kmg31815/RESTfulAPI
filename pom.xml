@@ -35,6 +35,26 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <to>
+                        <image>registry.hub.docker.com/sherry50430/jib_repo</image>
+                    </to>
+                    <!-- 經測試，預設 image 為 jdk 11，故指定 jdk 17 -->
+                    <from>
+                        <image>openjdk:17-alpine</image>
+                    </from>
+                    <!-- 改外部映射 port 測試 -->
+                    <container>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                    </container>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
