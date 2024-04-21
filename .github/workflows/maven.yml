@@ -55,16 +55,14 @@ jobs:
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
           location: ${{ env.GKE_ZONE }}
-      # Tag the Docker image
-      - name: Tag
-        run: |-
-          docker tag registry.hub.docker.com/sherry50430/jib_repo "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE:$IMAGE_TAG"
       # Push the Docker image to Google Container Registry
       - name: Publish
         run: |-
+          docker tag registry.hub.docker.com/sherry50430/jib_repo "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE:$IMAGE_TAG"
           docker push "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE:$IMAGE_TAG"
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
         run: |-
+          pwd
           kubectl apply -f deploy.yml
           kubectl get pods
