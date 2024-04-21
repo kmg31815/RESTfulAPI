@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: my-pod
-          image: us-central1-docker.pkg.dev/norse-block-420814/google-repo/restful-api:v1
+          image: us-central1-docker.pkg.dev/norse-block-420814/google-repo/restful-api:v2
           imagePullPolicy: Always
   replicas: 3
   selector:
