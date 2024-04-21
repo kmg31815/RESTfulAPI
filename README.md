@@ -1,7 +1,7 @@
-# GitHub Action 測試 (打包成 image 上傳 Docker Hub) + GKE 測試 (建立叢集並部署)
+# GitHub Action 測試 (打包成 image + GKE 部署測試)
+https://medium.com/@gravish316/setup-ci-cd-using-github-actions-to-deploy-to-google-kubernetes-engine-ef465a482fd
 
 # API Getting Started
-
 ### Create User
 ![img.png](img.png)
 
