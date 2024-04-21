@@ -64,4 +64,3 @@ jobs:
       - name: Deploy
         run: |-
           kubectl apply -f deployment.yaml
-          kubectl get pods
