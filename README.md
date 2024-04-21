@@ -1,4 +1,4 @@
-# GitHub Action 測試 (打包成 image 上傳 Docker Hub) + GKE 測試 (建立叢集並部署)
+# GitHub Action 測試 (打包成 image 上傳 Docker Hub)
 
 # Getting Started
 
