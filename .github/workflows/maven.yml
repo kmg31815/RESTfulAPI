@@ -51,6 +51,7 @@ jobs:
         uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GKE_SA_KEY }}'
+          workload_identity_provider: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
       # Configure Docker to use the gcloud command-line tool as a credential helper for authentication
       - name: Docker configuration
         run: |-
