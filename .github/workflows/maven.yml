@@ -3,12 +3,6 @@ name: Java CI with Maven
 
 # 什麼情況下觸發 workflow
 on:
-  workflow_call:
-    secrets:
-      GKE_PROJECT:
-        required: true
-      GKE_SA_KEY:
-        required: true
   # main branch 有 push 時觸發 workflow 
   push:
     branches: [ "main" ]
@@ -20,7 +14,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: sherry-cluster-1 # cluster name
   GKE_ZONE: us-central1 # cluster zone
-  IMAGE: registry.hub.docker.com/sherry50430/jib_repo # image name
+  IMAGE: restful-api # image name
   IMAGE_TAG: v1 # image tag
   GAR_ZONE: us-central1 # artifact registry zone
   GAR_REPO: google-repo # artifact registry repository
@@ -61,6 +55,10 @@ jobs:
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
           location: ${{ env.GKE_ZONE }}
+      # Tag the Docker image
+      - name: Tag
+        run: |-
+          docker tag registry.hub.docker.com/sherry50430/jib_repo "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE:$IMAGE_TAG"
       # Push the Docker image to Google Container Registry
       - name: Publish
         run: |-
