@@ -14,7 +14,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: sherry-cluster-1 # cluster name
   GKE_ZONE: us-central1 # cluster zone
-  IMAGE: sherry50430/jib_repo # image name
+  IMAGE: registry.hub.docker.com/sherry50430/jib_repo # image name
   GAR_ZONE: us-central1 # artifact registry zone
   GAR_REPO: google-repo # artifact registry repository
 
