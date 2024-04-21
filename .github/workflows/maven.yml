@@ -48,7 +48,7 @@ jobs:
         run: mvn compile jib:dockerBuild
       # Setup gcloud CLI
       - id: 'auth'
-        uses: 'google-github-actions/auth@v0'
+        uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GKE_SA_KEY }}'
       # Configure Docker to use the gcloud command-line tool as a credential helper for authentication
