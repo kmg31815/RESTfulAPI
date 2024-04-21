@@ -3,6 +3,12 @@ name: Java CI with Maven
 
 # 什麼情況下觸發 workflow
 on:
+  workflow_call:
+    secrets:
+      GKE_PROJECT:
+        required: true
+      GKE_SA_KEY:
+        required: true
   # main branch 有 push 時觸發 workflow 
   push:
     branches: [ "main" ]
