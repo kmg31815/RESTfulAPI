@@ -15,6 +15,7 @@ env:
   GKE_CLUSTER: sherry-cluster-1 # cluster name
   GKE_ZONE: us-central1 # cluster zone
   IMAGE: registry.hub.docker.com/sherry50430/jib_repo # image name
+  IMAGE_TAG: v1 # image tag
   GAR_ZONE: us-central1 # artifact registry zone
   GAR_REPO: google-repo # artifact registry repository
 
@@ -41,7 +42,7 @@ jobs:
         run: mvn compile jib:dockerBuild
       # Setup gcloud CLI
       - id: 'auth'
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GKE_SA_KEY }}'
       # Configure Docker to use the gcloud command-line tool as a credential helper for authentication
